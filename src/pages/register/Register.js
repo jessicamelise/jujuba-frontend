@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Button } from '../../components/button/Button.js';
 import '../../styles/register.scss';
 
@@ -14,27 +15,32 @@ export function Register() {
                         <input
                             type="text"
                             placeholder="Digite seu nome"
-                            style={{ marginBottom: "10px" }}
                         />
                         <input
                             type="text"
                             placeholder="Digite seu e-mail"
-                            style={{ marginBottom: "10px" }}
                         />
-                        <legend style={{ textAlign: "left" }}>Escolha sua função:</legend>
+                        <input
+                            type="text"
+                            placeholder="Digite sua senha"
+                        />
+                        <legend>Escolha sua função:</legend>
 
-                        <div style={{ display: "flex", justifyContent: "center" }}>
-                            <div style={{ display: "flex", alignItems: "center" }}>
-                                <input style={{ height: "30px" }} type="radio" id="kitchen" name="drone" value="kitchen" />
+                        <div>
+                            <div>
+                                <input type="radio" id="kitchen" name="drone" value="kitchen" />
                                 <label htmlFor="kitchen">Cozinha</label>
                             </div>
-                            <div style={{ display: "flex", alignItems: "center" }}>
-                                <input style={{ height: "30px" }} type="radio" id="hall" name="drone" value="hall" />
+                            <div>
+                                <input type="radio" id="hall" name="drone" value="hall" />
                                 <label htmlFor="hall">Salão</label>
                             </div>
                         </div>
                         <div style={{ width: "100%", padding: "0 16px"}}>
                             <Button type="submit">Cadastrar</Button>
+                            <Link to="/login">
+                                <Button type="button">Voltar</Button>
+                            </Link>
                         </div>
                     </form>
                 </div>

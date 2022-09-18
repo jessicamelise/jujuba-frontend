@@ -1,4 +1,4 @@
-#register {
+#login {
     display: flex;
     align-items: stretch;
     height: 100vh;
@@ -50,43 +50,31 @@
                 padding: 0 16px;
                 background: #fff;
                 border: 1px solid #a8a8b3;
-            }
-
-            input[type=text] {
                 margin-bottom: 10px;
             }
 
-            input[type=radio] {
-                height: 30px;
-            }
-
             legend {
-                text-align: left;
-            }
-
-            div:first-of-type {
+                padding: 0 16px;
                 display: flex;
                 justify-content: center;
-
-                div {
-                    display: flex;
-                    align-items: center;
-                }
+                margin-top: 10px;
             }
 
             button {
                 margin-top: 16px;
             }
 
-            button[type=button] {
-                background-color: #666669;
+            div {
+                padding: 0 16px;
             }
 
             a {
                 text-decoration: none;
+                color: rgb(0, 128, 255);
+                font-weight: 600;
             }
 
-            button, input {
+            button, input, div, legend {
                 width: 100%;
             }
         }
