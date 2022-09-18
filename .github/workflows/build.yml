@@ -20,7 +20,9 @@ jobs:
     - name: instalando dependências
       run: npm install
     - name: build
-      run: npm run build
+      run: >-
+        BASENAME_PATH=jujuba-frontend
+        npm run build
     - name: Atualizando Github Pages
       uses: peaceiris/actions-gh-pages@v3
       with:

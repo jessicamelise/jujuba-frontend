@@ -4,7 +4,7 @@ import { Login } from './pages/login/Login';
 
 function App() {
   return (
-    <BrowserRouter basename="jujuba-frontend">
+    <BrowserRouter basename={process.env.BASENAME_PATH}>
       <Routes>
         <Route exact path="/" element={<Navigate to="/login"/>} />
         <Route path="/login" element={<Login />} />
