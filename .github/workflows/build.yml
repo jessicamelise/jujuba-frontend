@@ -19,8 +19,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: instalando dependências
       run: npm install
-    # - run: BASENAME_PATH=jujuba-frontend
-    # - run: echo $BASENAME_PATH
     - name: build
       run: npm run build
     - name: Atualizando Github Pages
