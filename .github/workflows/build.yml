@@ -19,11 +19,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: instalando dependências
       run: npm install
+    - run: BASENAME_PATH=jujuba-frontend
+    - run: echo BASENAME_PATH
     - name: build
-      run: >
-        BASENAME_PATH=jujuba-frontend
-        echo BASENAME_PATH
-        npm run build
+      run: npm run build
     - name: Atualizando Github Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
