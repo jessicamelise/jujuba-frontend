@@ -20,7 +20,7 @@ jobs:
     - name: instalando dependências
       run: npm install
     - name: build
-      run: >-
+      run: >
         BASENAME_PATH=jujuba-frontend
         echo BASENAME_PATH
         npm run build
