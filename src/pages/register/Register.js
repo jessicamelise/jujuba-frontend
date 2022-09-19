@@ -10,6 +10,7 @@ export function Register() {
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [role, setRole] = useState("");
+    // eslint-disable-next-line
     const [errorLogin, setErrorLogin] = useState("");
     const navigate = useNavigate();
 

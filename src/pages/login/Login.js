@@ -8,6 +8,7 @@ import '../../styles/login.scss';
 export function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    // eslint-disable-next-line
     const [errorLogin, setErrorLogin] = useState("");
     const navigate = useNavigate();
 
