@@ -1,5 +1,10 @@
 # jujuba-frontend
 
+## Acesso a Aplicação
+- Deploy realizado no Heroku:
+
+**[jujuba-frontend](https://jessicamelise.github.io/jujuba-frontend/login)**
+
 ### Paleta de Cores
 
 <img src="src\assets\images\paleta.jpeg"/>
@@ -24,5 +29,5 @@ npm start
 ```
 - Acessar o browser:
 ```
-http://localhost:3000/register
+http://localhost:3000/jujuba-frontend/login
 ```
