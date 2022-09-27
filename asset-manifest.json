@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/jujuba-frontend/static/css/main.232d141d.css",
-    "main.js": "/jujuba-frontend/static/js/main.d3033d38.js",
+    "main.css": "/jujuba-frontend/static/css/main.67d220ac.css",
+    "main.js": "/jujuba-frontend/static/js/main.f4ef4a8c.js",
     "index.html": "/jujuba-frontend/index.html",
-    "main.232d141d.css.map": "/jujuba-frontend/static/css/main.232d141d.css.map",
-    "main.d3033d38.js.map": "/jujuba-frontend/static/js/main.d3033d38.js.map"
+    "main.67d220ac.css.map": "/jujuba-frontend/static/css/main.67d220ac.css.map",
+    "main.f4ef4a8c.js.map": "/jujuba-frontend/static/js/main.f4ef4a8c.js.map"
   },
   "entrypoints": [
-    "static/css/main.232d141d.css",
-    "static/js/main.d3033d38.js"
+    "static/css/main.67d220ac.css",
+    "static/js/main.f4ef4a8c.js"
   ]
 }
