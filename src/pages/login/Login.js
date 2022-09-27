@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { login } from "../../api/users/usersApi";
+import { login } from "../../api/login/loginApi";
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/button/Button.js';
+import { useLogin } from '../../hooks/useLogin';
 import '../../styles/login.scss';
 
 export function Login() {
+    const { setUser } = useLogin();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     // eslint-disable-next-line
@@ -23,20 +25,19 @@ export function Login() {
     const userLogin = (userEmail, userPassword) => {
         login(userEmail, userPassword)
             .then((authorizedUser) => {
-                console.log(authorizedUser)
                 if (!authorizedUser.detail) {
-                    navigate('/logged-area')
+                    setUser(authorizedUser);
+                    navigate('/logged-area');
                 }
             })
             .catch((err) => {
                 setErrorLogin(err);
-                console.log(err)
             });
     };
 
     const handleClick = (e) => {
         e.preventDefault();
-        userLogin(email, password)
+        userLogin(email, password);
     };
 
     return (

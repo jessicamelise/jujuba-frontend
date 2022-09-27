@@ -1,0 +1,40 @@
+#nav {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 20px);
+    padding: 10px;
+    background: rgba(255,170,194, 0.5);
+    color: #A396C2;
+
+    .nav-items {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        .nav-item-app-name {
+            font-size: large;
+            font-weight: bolder;
+            color: #A396C2;
+            // width: 60%;
+        }
+
+        button {
+            height: 30px;
+        }
+    }
+
+    .nav-menus {
+        display: flex;
+        
+        p {
+            padding: 0 10px;
+            border-right: 1px solid #A396C2;
+            cursor: pointer;
+        }
+
+        .current-nav-item {
+            font-weight: 700;
+        }
+    }
+}
