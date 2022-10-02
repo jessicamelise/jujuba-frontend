@@ -10,7 +10,6 @@ export function Login() {
     const { setUser } = useLogin();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    // eslint-disable-next-line
     const [errorLogin, setErrorLogin] = useState("");
     const navigate = useNavigate();
 
@@ -28,10 +27,13 @@ export function Login() {
                 if (!authorizedUser.detail) {
                     setUser(authorizedUser);
                     navigate('/logged-area');
-                }
+                } else {
+                    setErrorLogin("Usuário não autorizado. Verifique seu email e senha.");
+                };
             })
             .catch((err) => {
-                setErrorLogin(err);
+                console.log(err)
+                setErrorLogin("Ocorreu um erro, tente novamente.");
             });
     };
 
@@ -54,17 +56,24 @@ export function Login() {
                             placeholder="Digite seu e-mail"
                             onChange={handleInputEmail}
                             value={email}
+                            required
                         />
                         <input
-                            type="text"
+                            type="password"
                             placeholder="Digite sua senha"
                             onChange={handleInputPassword}
                             value={password}
+                            required
                         />
                         <div>
                             <Button type="submit" disabled={!password || !email}>Entrar</Button>
                         </div>
                         <legend><Link to={'/register'}>Cadastre-se</Link></legend>
+                        {errorLogin &&
+                            <div className="error">
+                                <p>{errorLogin}</p>
+                            </div>
+                        }
                     </form>
                 </div>
             </main>

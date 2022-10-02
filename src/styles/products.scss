@@ -1,0 +1,55 @@
+#products-area {
+    align-items: center;
+    padding: 20px;
+
+    .button-new-product {
+        padding: 10px 0px;
+        display: flex;
+        justify-content: flex-end;
+
+        p {
+            cursor: pointer;
+            color: #A396C2;
+            font-weight: 600;
+        }
+    }
+
+    form {
+        width: 100%;
+        width: 100%;
+        display: grid;
+        justify-items: center;
+        padding: 10px 0;
+
+        input {
+            height: 40px;
+            width: 40%;
+            border-radius: 8px;
+            padding: 0 16px;
+            background: #fff;
+            border: 1px solid #a8a8b3;
+            margin-bottom: 10px;
+        }
+
+        button {
+            height: 35px;
+        }
+    }
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    td,
+    th {
+        border: 1px solid #F8E8E8;
+        text-align: left;
+        padding: 8px;
+    }
+    
+    thead, tr:nth-child(even) {
+        background-color: #A396C2;
+    }
+}

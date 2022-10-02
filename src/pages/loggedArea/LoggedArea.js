@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components/button/Button.js';
 import { useLogin } from '../../hooks/useLogin';
-import '../../styles/loggedArea.scss';
 import { Employees } from "./Employees.js";
-import { Menu } from "./Menu.js";
+import { Products } from "./Products.js";
+import '../../styles/loggedArea.scss';
 
 export function LoggedArea() {
     const navigate = useNavigate();
@@ -45,7 +45,7 @@ export function LoggedArea() {
                         onClick={() => handleChangeNavItem(2)} 
                         className={navItem === 2? 'current-nav-item' : ''}
                     >
-                        Menu
+                        Produtos
                     </p>
                 </div>
             </nav>
@@ -54,7 +54,7 @@ export function LoggedArea() {
                     <Employees />
                 }
                 {navItem ===  2 &&
-                    <Menu />
+                    <Products />
                 }
             </main>
         </div>

@@ -1,5 +1,4 @@
 export const registerNewUser = async (newUser) => {
-    console.log(newUser)
     try {
         const usersAPI = await fetch("https://jujuba-api.herokuapp.com/users", {
         // const usersAPI = await fetch("http://localhost:8000/users", {
@@ -19,8 +18,8 @@ export const registerNewUser = async (newUser) => {
 
 export const getAllUsers = async () => {
     try {
-        const usersAPI = await fetch("https://jujuba-api.herokuapp.com/users", {
-        // const usersAPI = await fetch("http://localhost:8000/users", {
+        // const usersAPI = await fetch("https://jujuba-api.herokuapp.com/users", {
+        const usersAPI = await fetch("http://localhost:8000/users", {
             method: 'GET',
         })
         const response = await usersAPI.json();
