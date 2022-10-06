@@ -1,0 +1,21 @@
+#employees-area {
+    align-items: center;
+    padding: 20px;
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    td,
+    th {
+        border: 1px solid #F8E8E8;
+        text-align: left;
+        padding: 8px;
+    }
+    
+    thead, tr:nth-child(even) {
+        background-color: #A396C2;
+    }
+}

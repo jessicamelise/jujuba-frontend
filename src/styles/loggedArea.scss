@@ -1,0 +1,51 @@
+#nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    // background: rgba(255,170,194, 0.5);
+    // color: #A396C2;
+    
+    .nav-items {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: calc(100% - 20px);
+        padding: 10px;
+        background: #F89860;
+        color: #F8E8E8;
+
+        .nav-item-app-name {
+            font-size: large;
+            font-weight: bolder;
+            // color: #A396C2;
+            // width: 60%;
+        }
+
+        button {
+            height: 30px;
+            background-color: #F8E8E8;
+            color: #F87840;
+
+            &.outlined {
+                background: #fff;
+                border: 1px solid #F8E8E8;
+                color: #F8E8E8;
+            }
+        }
+    }
+
+    .nav-menus {
+        display: flex;
+        
+        p {
+            color: #A396C2;
+            padding: 0 10px;
+            border-right: 1px solid #A396C2;
+            cursor: pointer;
+        }
+
+        .current-nav-item {
+            font-weight: 700;
+        }
+    }
+}

@@ -77,6 +77,12 @@
             button, input, div, legend {
                 width: 100%;
             }
+
+            .error {
+                color: red;
+                font-size: small;
+                font-weight: 600;
+            }
         }
     }
 }
