@@ -10,7 +10,6 @@ export function Employees() {
     const getUsers = () => {
         getAllUsers()
             .then((userList) => {
-                console.log(userList)
                 setUsers(userList);
             })
             .catch((err) => {

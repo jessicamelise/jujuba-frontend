@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { createProduct, getAllProducts } from "../../api/products/productsApi";
+import { createProduct, getAllProducts, updateProduct, deleteProduct } from "../../api/products/productsApi";
 import { Button } from "../../components/button/Button";
 import '../../styles/products.scss';
 
 export function Products() {
     const [products, setProducts] = useState("");
-    // eslint-disable-next-line
-    const [newProduct, setNewProduct] = useState("");
+    const [editProduct, setEditProduct] = useState("");
     const [showNewProductForm, setShowNewProductform] = useState(false);
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [type, setType] = useState("");
     const [price, setPrice] = useState("");
+    const [loadCreate, setLoadCreate] = useState(false);
     // eslint-disable-next-line
     const [errorGetProducts, setErrorGetProducts] = useState("");
     // eslint-disable-next-line
@@ -20,14 +20,38 @@ export function Products() {
     const getProducts = () => {
         getAllProducts()
             .then((productList) => {
-                setProducts(productList);
+                const contentEditable = productList.map((eachProduct) => {
+                    return {...eachProduct, editable: false, remove: ""}
+                });
+                setProducts(contentEditable);
             })
             .catch((err) => {
                 setErrorGetProducts(err);
             });
     };
 
+    const updateOneProduct = (ind, payload) => {
+        updateProduct(ind, payload)
+            .then((product) => {
+                getProducts();
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
+    const deleteOneProduct = (productId) => {
+        deleteProduct(productId)
+            .then((product) => {
+                getProducts();
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
     const createNewProduct = () => {
+        setLoadCreate(true);
         const product = {
             name,
             type,
@@ -37,12 +61,17 @@ export function Products() {
 
         createProduct(product)
             .then((newProduct) => {
-                console.log(newProduct);
-                setNewProduct(newProduct);
-                getAllProducts();
+                getProducts();
+                setName("");
+                setDescription("");
+                setPrice("");
+                setType("");
             })
             .catch((err) => {
-                setErrorCreateProduct(err);
+                console.log(err);
+            })
+            .finally(() => {
+                setLoadCreate(false);
             });
     };
 
@@ -75,6 +104,46 @@ export function Products() {
         createNewProduct();
     };
 
+    const handleMakeEditable = (index) => {
+        const makeEditable = products.map((eachProduct, ind) => {
+            if (ind === index) {
+                eachProduct.editable = true;
+            };
+            return eachProduct;
+        });
+        setProducts(makeEditable);
+    };
+
+    const handleChangeEditable = (event) => {
+        const list = event.target.children;
+        const editValues = [];
+        for (let item of list) {
+            editValues.push(item.innerText);
+        };
+        const edit = {
+            name: editValues[0],
+            description: editValues[1],
+            price: editValues[2],
+            type: editValues[3]
+        };
+        setEditProduct(edit);
+    };
+
+    const handleSaveEdit = (index, productId) => {
+        const makeNotEditable = products.map((eachProduct, ind) => {
+            if (ind === index) {
+                eachProduct.editable = false;
+            }
+            return eachProduct;
+        });
+        setProducts(makeNotEditable)
+        updateOneProduct(productId, editProduct);
+    };
+
+    const handleDeleteProduct = (productId) => {
+        deleteOneProduct(productId);
+    };
+
     return (
         <div id="products-area">
             <div className="button-new-product">
@@ -84,7 +153,6 @@ export function Products() {
             </div>
             {showNewProductForm &&
                 <div>
-                {/* onSubmit={handleClick} */}
                     <form onSubmit={handleClick}>
                         <input
                             type="text"
@@ -92,6 +160,7 @@ export function Products() {
                             onChange={handleInputName}
                             value={name}
                             required
+                            disabled={loadCreate}
                         />
                         <input
                             type="text"
@@ -99,6 +168,7 @@ export function Products() {
                             onChange={handleInputDescription}
                             value={description}
                             required
+                            disabled={loadCreate}
                         />
                         <input
                             type="text"
@@ -106,6 +176,7 @@ export function Products() {
                             onChange={handleInputPrice}
                             value={price}
                             required
+                            disabled={loadCreate}
                         />
                         <input
                             type="text"
@@ -113,9 +184,10 @@ export function Products() {
                             onChange={handleInputType}
                             value={type}
                             required
+                            disabled={loadCreate}
                         />  
                         <div>
-                            <Button type="submit">Inserir</Button>
+                            <Button type="submit" disabled={loadCreate}>Inserir</Button>
                         </div>
                     </form>
                 </div>
@@ -133,12 +205,40 @@ export function Products() {
                 <tbody>
                     {products && products.map((product, index) => {
                         return (
-                            <tr key={index}>
+                            <tr 
+                                key={index} 
+                                contentEditable={product.editable} 
+                                suppressContentEditableWarning={true}
+                                onInput={(e) =>handleChangeEditable(e)}
+                            >
                                 <td>{product.name}</td>
                                 <td>{product.description}</td>
                                 <td>{product.price}</td>
                                 <td>{product.type}</td>
                                 <td>{product.id}</td>
+                                <td>
+                                    {product.editable ? 
+                                        <div onClick={() => handleSaveEdit(index, product.id)}>
+                                            Salvar
+                                        </div> : 
+                                        <span 
+                                            className="material-icons"
+                                            onClick={() => handleMakeEditable(index)}
+                                        >
+                                            &#xe3c9;
+                                        </span> 
+                                    }
+                                </td>
+                                <td>
+                                    {product.remove === "" && 
+                                        <span 
+                                            className="material-icons"
+                                            onClick={() => handleDeleteProduct(product.id)}
+                                        >
+                                            &#xe872;
+                                        </span> 
+                                    }
+                                </td>
                             </tr>
                         )
                     })}

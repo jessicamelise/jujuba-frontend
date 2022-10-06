@@ -40,6 +40,12 @@
         font-family: arial, sans-serif;
         border-collapse: collapse;
         width: 100%;
+
+        span {
+            font-size: 15px;
+            cursor: pointer;
+            margin: 0 6px;
+        }
     }
     
     td,
