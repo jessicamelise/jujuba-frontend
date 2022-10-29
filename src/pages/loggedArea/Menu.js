@@ -38,7 +38,7 @@ export function Menu() {
                             alignItems: 'center'
                         }}
                     >
-                        {products.map((product) => {
+                        {products && products.map((product) => {
                             return (
                                 <div style={{
                                         display: 'flex', 
