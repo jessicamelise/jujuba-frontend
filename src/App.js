@@ -9,8 +9,8 @@ function App() {
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <LoginContextProvider>
         <Routes>
-          <Route exact path="/" element={<Navigate to="/login"/>} />
-          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/" element={<Login />}/>
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/logged-area" element={<LoggedArea />} />
         </Routes>
