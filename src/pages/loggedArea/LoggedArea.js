@@ -4,6 +4,7 @@ import { Button } from '../../components/button/Button.js';
 import { useLogin } from '../../hooks/useLogin';
 import { Employees } from "./Employees.js";
 import { Products } from "./Products.js";
+import { Menu } from "./Menu.js";
 import '../../styles/loggedArea.scss';
 
 export function LoggedArea() {
@@ -47,6 +48,12 @@ export function LoggedArea() {
                     >
                         Produtos
                     </p>
+                    <p 
+                        onClick={() => handleChangeNavItem(3)} 
+                        className={navItem === 3? 'current-nav-item' : ''}
+                    >
+                        Menu
+                    </p>
                 </div>
             </nav>
             <main>
@@ -55,6 +62,9 @@ export function LoggedArea() {
                 }
                 {navItem ===  2 &&
                     <Products />
+                }
+                {navItem ===  3 &&
+                    <Menu />
                 }
             </main>
         </div>
