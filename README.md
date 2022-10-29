@@ -3,7 +3,7 @@
 ## Acesso a Aplicação
 - Deploy realizado no Heroku:
 
-**[jujuba-frontend](https://jessicamelise.github.io/jujuba-frontend/login)**
+**[jujuba-frontend](https://jessicamelise.github.io/jujuba-frontend)**
 
 ### Paleta de Cores
 

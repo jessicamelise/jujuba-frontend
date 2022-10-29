@@ -10,7 +10,7 @@ function App() {
       <LoginContextProvider>
         <Routes>
           <Route exact path="/" element={<Navigate to="/login"/>} />
-          <Route path="/login" element={<Login />} />
+          <Route exact path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/logged-area" element={<LoggedArea />} />
         </Routes>
